@@ -2,11 +2,15 @@ package com.documentum;
 import com.documentum.conexao_documentum;
 import com.documentum.com.DfClientX;
 import com.documentum.com.IDfClientX;
+import com.documentum.fc.client.DfQuery;
+import com.documentum.fc.client.IDfCollection;
 import com.documentum.fc.client.IDfDocbaseMap;
 import com.documentum.fc.client.IDfDocument;
 import com.documentum.fc.client.IDfFolder;
+import com.documentum.fc.client.IDfQuery;
 import com.documentum.fc.client.IDfSysObject;
 import com.documentum.fc.client.IDfType;
+import com.documentum.fc.client.IDfTypedObject;
 import com.documentum.fc.client.IDfVirtualDocument;
 import com.documentum.fc.client.IDfVirtualDocumentNode;
 import com.documentum.fc.common.DfException;
@@ -313,7 +317,29 @@ public class UtilsDocumentum extends conexao_documentum {
 			 }
 			
 		}
+		//-------------------CONSULTAS DQL--------------------
+		public void collection() throws Exception {
+			
+			IDfQuery query = new DfQuery();
+			
+			query.setDQL("select * from dm_document where object_name='alterei_denovo.txt'");
+			
+			IDfCollection coll = query.execute(getSessDctm(), 0);
+			
+			while (coll.next()) {
+			
+				IDfTypedObject typeObject = (IDfTypedObject) coll.getTypedObject();
+			
+			    System.out.println("Object Name "+ typeObject.getString("r_object_id"));
+			
+			    System.out.println("creation date "+ typeObject.getString("r_creation_date"));
+			
+			}
+			
+			if (coll != null)
+			
+				coll.close();
+			
+			}
 
-		
-		
 }

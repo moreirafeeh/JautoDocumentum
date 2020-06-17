@@ -23,7 +23,8 @@ public class DocumentumRunner {
 		//Utils.getTypeAttributes();
 		//Utils.checkinDoc();
 		//Utils.checkoutDoc();
-		Utils.viewVirtualDocument();
+		//Utils.viewVirtualDocument();
+		Utils.collection();
 	}
 
 }
