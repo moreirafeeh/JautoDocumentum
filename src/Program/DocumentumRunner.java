@@ -1,7 +1,7 @@
 package Program;
 
 import com.documentum.UtilsDocumentum;
-
+import com.documentum.ObjectsParam.Querys;;
 
 
 public class DocumentumRunner {
@@ -24,7 +24,7 @@ public class DocumentumRunner {
 		//Utils.checkinDoc();
 		//Utils.checkoutDoc();
 		//Utils.viewVirtualDocument();
-		Utils.collection();
+		Utils.ConsultarQuery(Querys.QuantidadeArquivoDiretorio("/RH"));
 	}
 
 }

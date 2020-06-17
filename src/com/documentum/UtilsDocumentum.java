@@ -1,5 +1,6 @@
 package com.documentum;
 import com.documentum.conexao_documentum;
+import com.documentum.ObjectsParam.Querys;
 import com.documentum.com.DfClientX;
 import com.documentum.com.IDfClientX;
 import com.documentum.fc.client.DfQuery;
@@ -318,11 +319,11 @@ public class UtilsDocumentum extends conexao_documentum {
 			
 		}
 		//-------------------CONSULTAS DQL--------------------
-		public void collection() throws Exception {
+		public void ConsultarQuery(String queryString) throws Exception {
 			
 			IDfQuery query = new DfQuery();
 			
-			query.setDQL("select * from dm_document where object_name='alterei_denovo.txt'");
+			query.setDQL(queryString);
 			
 			IDfCollection coll = query.execute(getSessDctm(), 0);
 			
