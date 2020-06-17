@@ -24,7 +24,11 @@ public class DocumentumRunner {
 		//Utils.checkinDoc();
 		//Utils.checkoutDoc();
 		//Utils.viewVirtualDocument();
-		Utils.ConsultarQuery(Querys.QuantidadeArquivoDiretorio("/RH"));
+		//Utils.ConsultarQuery(Querys.QuantidadeArquivoDiretorio("/RH"));
+		//Utils.ConsultarQuery(Querys.TamanhoOcupadoPelosArquivos("/RH"));
+		//Utils.ConsultarQuery(Querys.ContarDatasArquivos("1/1/2018 23:59:59", "1/1/2020 23:59:59"));
+		//Utils.ConsultarQuery(Querys.ConsultarGabinets());
+		Utils.ConsultarQuery(Querys.PastaParaArquivo("/Felipe Twitch/felipinho3"));
 	}
 
 }

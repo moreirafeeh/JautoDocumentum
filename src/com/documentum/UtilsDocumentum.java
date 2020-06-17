@@ -329,11 +329,12 @@ public class UtilsDocumentum extends conexao_documentum {
 			
 			while (coll.next()) {
 			
-				IDfTypedObject typeObject = (IDfTypedObject) coll.getTypedObject();
-			
-			    System.out.println("Object Name "+ typeObject.getString("r_object_id"));
-			
-			    System.out.println("creation date "+ typeObject.getString("r_creation_date"));
+				IDfTypedObject typeObject = (IDfTypedObject) coll.getTypedObject();	
+				
+				System.out.println("----------------------------------------------------");
+			    System.out.println("resultado: "+ typeObject.getString("resultado_query"));
+			    //System.out.println("creation date "+ typeObject.getString("r_object_id"));
+			    System.out.println("----------------------------------------------------");
 			
 			}
 			
