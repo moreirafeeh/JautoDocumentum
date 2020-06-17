@@ -8,6 +8,7 @@ import com.documentum.fc.client.IDfFolder;
 import com.documentum.fc.client.IDfSysObject;
 import com.documentum.fc.client.IDfType;
 import com.documentum.fc.client.IDfVirtualDocument;
+import com.documentum.fc.client.IDfVirtualDocumentNode;
 import com.documentum.fc.common.DfException;
 import com.documentum.fc.common.DfId;
 import com.documentum.fc.common.IDfAttr;
@@ -195,7 +196,7 @@ public class UtilsDocumentum extends conexao_documentum {
 	//---------------------------Pegar atributos---------------------------NAO ESTA FUNCIONANDO AINDA
 	public void getTypeAttributes() throws Exception {
 		
-		IDfType type = (IDfType) getSessDctm().newObject("dm_document");
+		IDfType type = (IDfType) getSessDctm().getType("dm_document");
 		
 		for (int i = 0; i < type.getAttrCount(); i++) {
 		
@@ -213,23 +214,106 @@ public class UtilsDocumentum extends conexao_documentum {
 		
 	}
 	//---------------------------------------------------------------------
-	
-	public void checkoutDoc() throws Exception {
+	//EXPLICAR FUNCIONAMENTO CHECKIN CHECKOUT
+	//checkoutDoc("/Felipe Twitch/felipinho3/alterei_denovo")
+		public void checkoutDoc(String path_arquivo) throws Exception {
 		
-		IDfSysObject sysObject = null; 
+			IDfSysObject sysObject = null; 
 		
-		sysObject = (IDfSysObject) getSessDctm().getObjectByPath("/Training Cabinet XXX/Folder Level 1/");
+			sysObject = (IDfSysObject) getSessDctm().getObjectByPath(path_arquivo);
 		
-		if (!sysObject.isCheckedOut()) // if it is not checked out
+			if (!sysObject.isCheckedOut()) // if it is not checked out
 		
-			sysObject.checkout();
+				sysObject.checkout();
 		
-		 	System.out.println("is Check out " + sysObject.isCheckedOut());
+		 		System.out.println("is Check out " + sysObject.isCheckedOut());
 	
 		}
+		//EXPLICAR FUNCIONAMENTO CHECKIN CHECKOUT
+		//checkinDoc("/Felipe Twitch/felipinho3/alterei_denovo")
+		public void checkinDoc(String path_arquivo) throws Exception {
+		
+			IDfSysObject sysObject = null;
+		
+			sysObject = (IDfSysObject) getSessDctm().getObjectByPath(path_arquivo);
+		
+			if (sysObject.isCheckedOut()) { // if it is checked out
+		
+				sysObject.checkin(false, "CURRENT");
+		
+			}
+		
+		}
+	//------------------------------------------------------------
+	//-------------------deletar arquivo/documento----------------	
+		//deleteDoc("/Felipe Twitch/testandoTwitch.txt")
+		public void deleteDoc(String path_arquivo) throws Exception {
+			
+			IDfSysObject sysObject = null;
+			
+			sysObject = (IDfSysObject) getSessDctm().getObjectByPath(path_arquivo);
+			
+			if (sysObject != null) {
+				sysObject.destroyAllVersions(); // delete all versions
+				System.out.println("object destroyed…..");
+			}
+			else{
+				System.out.println("documento nao existe ou aj foi deletado");
+			}
+			
+		}
+	//--------------------------------------------------------------
+		//cria um documento virtual---------------------------------NAO SEI TESTEI
+		public void createVirtualDocument() throws Exception {
+			
+			
+			IDfSysObject pSys = (IDfSysObject) getSessDctm().getObjectByPath("/Training Cabinet XXX/Folder Level 2/log4j.properties");
+			
+			IDfSysObject cSys = (IDfSysObject) getSessDctm().getObjectByPath("/Training Cabinet XXX/Folder Level 1/trace.log");
+			
+			pSys.setIsVirtualDocument(true);
+			
+			pSys.save();
+			
+			IDfVirtualDocument vDoc = pSys.asVirtualDocument("CURRENT", false);
+			
+			IDfVirtualDocumentNode pNode = vDoc.getRootNode();
+		
+			pSys.checkout();
+			
+			IDfVirtualDocumentNode nodeChild1 = vDoc.addNode(pNode, null, cSys.getChronicleId(), "CURRENT", false, false);
+			
+			pSys.checkin(false, "CURRENT");
+			
+			}
+		//--------------------------------------------------------
+		
+		public void viewVirtualDocument() throws Exception {
+			
+			 IDfSysObject pSys = (IDfSysObject) getSessDctm().getObjectByPath("/Felipe Twitch/felipinho3/alterei_denovo");
+			
+			 if (pSys.isVirtualDocument()) {
+			
+				 System.out.println("virtual document –> true");
+			
+			     IDfVirtualDocument vDoc = pSys.asVirtualDocument("CURRENT", false);
+			
+			     IDfVirtualDocumentNode pNode = vDoc.getRootNode();
+						
+			     System.out.println("Iterating thru the lis to get the child nodes");
+			     
+			     for (int i = 0; i < pNode.getChildCount(); i++) {
+			
+			    	 IDfVirtualDocumentNode cNode = pNode.getChild(i);
+			
+			         System.out.println("Child Name " + cNode.getSelectedObject().getObjectName());
+			
+			     }
+			
+			 }
+			
+		}
 
-	
-	
-	
-	
+		
+		
 }

@@ -20,7 +20,10 @@ public class DocumentumRunner {
 		//Utils.createFolder("Felipe Twitch" , "Felipe Teste");
 		//Utils.createDocument("Felipe_teste_func", "crtext", "C:\\Documentum\\export\\testandoTwitch.txt","/Felipe Twitch/felipinho3");
 		//Utils.updateAttributes("/Felipe Twitch/felipinho3/meu_doc_alterado", "object_name", "alterei_denovo");
-		Utils.getTypeAttributes();
+		//Utils.getTypeAttributes();
+		//Utils.checkinDoc();
+		//Utils.checkoutDoc();
+		Utils.viewVirtualDocument();
 	}
 
 }
