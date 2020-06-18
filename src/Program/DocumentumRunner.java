@@ -39,7 +39,7 @@ public class DocumentumRunner {
 		
 		XSSFWorkbook wk = new XSSFWorkbook(arquivo);
 		
-		System.out.println(wk.getFirstVisibleTab());
+		System.out.println(wk);
 		
 		
 	}
