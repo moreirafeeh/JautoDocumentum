@@ -40,7 +40,9 @@ public class Querys {
 		return query;
 	}
 	
-	
+	//
+	// ArquivoParaPasta()
+	//public static A
 	
 	
 	

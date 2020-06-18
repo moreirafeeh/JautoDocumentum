@@ -1,5 +1,10 @@
 package Program;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import com.documentum.UtilsDocumentum;
 import com.documentum.ObjectsParam.Querys;;
 
@@ -12,7 +17,7 @@ public class DocumentumRunner {
 	 */
 	public static void main(String[] args) throws Exception {
 		
-		UtilsDocumentum Utils = new UtilsDocumentum("ftwitch","@Twitch6","MapfreD03");
+		//UtilsDocumentum Utils = new UtilsDocumentum("ftwitch","@Twitch6","MapfreD03");
 		//Utils.ImportarDocumentum();
 		//Utils.exportVirtualDocument("path", "/Felipe Twitch/testandoTwitch.txt");
 		//Utils.getAllDocbases();
@@ -28,7 +33,15 @@ public class DocumentumRunner {
 		//Utils.ConsultarQuery(Querys.TamanhoOcupadoPelosArquivos("/RH"));
 		//Utils.ConsultarQuery(Querys.ContarDatasArquivos("1/1/2018 23:59:59", "1/1/2020 23:59:59"));
 		//Utils.ConsultarQuery(Querys.ConsultarGabinets());
-		Utils.ConsultarQuery(Querys.PastaParaArquivo("/Felipe Twitch/felipinho3"));
+		//Utils.ConsultarQuery(Querys.PastaParaArquivo("/Felipe Twitch/felipinho3"));
+		
+		FileInputStream arquivo = new FileInputStream(new File("C:\\Users\\fmoreiraf\\Desktop\\teste.xlsx"));
+		
+		XSSFWorkbook wk = new XSSFWorkbook(arquivo);
+		
+		System.out.println(wk.getFirstVisibleTab());
+		
+		
 	}
 
 }
