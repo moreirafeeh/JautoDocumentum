@@ -4,6 +4,7 @@ import com.documentum.ObjectsParam.Querys;
 import com.documentum.com.DfClientX;
 import com.documentum.com.IDfClientX;
 import com.documentum.fc.client.DfQuery;
+import com.documentum.fc.client.IDfACL;
 import com.documentum.fc.client.IDfCollection;
 import com.documentum.fc.client.IDfDocbaseMap;
 import com.documentum.fc.client.IDfDocument;
@@ -329,11 +330,12 @@ public class UtilsDocumentum extends conexao_documentum {
 			
 			while (coll.next()) {
 			
-				IDfTypedObject typeObject = (IDfTypedObject) coll.getTypedObject();
-			
-			    System.out.println("Object Name "+ typeObject.getString("r_object_id"));
-			
-			    System.out.println("creation date "+ typeObject.getString("r_creation_date"));
+				IDfTypedObject typeObject = (IDfTypedObject) coll.getTypedObject();	
+				
+				System.out.println("----------------------------------------------------");
+			    System.out.println("resultado: "+ typeObject.getString("resultado_query"));
+			    //System.out.println("creation date "+ typeObject.getString("r_object_id"));
+			    System.out.println("----------------------------------------------------");
 			
 			}
 			
@@ -342,5 +344,22 @@ public class UtilsDocumentum extends conexao_documentum {
 				coll.close();
 			
 			}
+		//------------------------------------------------------
+		
+		public void assignACL() throws Exception {
+			
+			IDfSysObject mDocs = (IDfSysObject) getSessDctm().getObjectByQualification("dm_document where object_name='UniqueDoc' ");
+			
+			IDfACL dfACL = (IDfACL) getSessDctm().getObjectByQualification("dm_acl where object_name='TrainingACL' ");
+			
+			mDocs.setACL(dfACL);
+			
+			mDocs.save();
+			
+		}
+		
+		
+
+		
 
 }
