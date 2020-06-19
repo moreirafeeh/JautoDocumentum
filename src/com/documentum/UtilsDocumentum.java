@@ -346,16 +346,19 @@ public class UtilsDocumentum extends conexao_documentum {
 			}
 		//------------------------------------------------------
 		
-		public void assignACL() throws Exception {
+		public void assignACL(String[] arquivos) throws Exception {
 			
-			IDfSysObject mDocs = (IDfSysObject) getSessDctm().getObjectByQualification("dm_document where object_name='UniqueDoc' ");
+			for (int i = 0; i <= arquivos.length; i++){
+				IDfSysObject mDocs = (IDfSysObject) getSessDctm().getObjectByQualification("dm_document where object_name like '" + arquivos  + "'");
 			
-			IDfACL dfACL = (IDfACL) getSessDctm().getObjectByQualification("dm_acl where object_name='TrainingACL' ");
+			System.out.println(mDocs);
 			
-			mDocs.setACL(dfACL);
+			//IDfACL dfACL = (IDfACL) getSessDctm().getObjectByQualification("dm_acl where object_name='LCS_felipeTW_not'");
 			
-			mDocs.save();
+			//mDocs.setACL(dfACL);
 			
+			//mDocs.save();
+			}
 		}
 		
 		
