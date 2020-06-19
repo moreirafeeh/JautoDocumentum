@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_22"/>
 	<classpathentry kind="lib" path="C:/Users/lvidotti/Desktop/mapfre/Ambinte/dctm_composer_r.6.6/Composer/plugins/com.emc.ide.external.dfc_1.0.0/lib/dfc.jar"/>
 	<classpathentry kind="lib" path="C:/Documentum/config"/>
@@ -20,6 +21,9 @@
 	<classpathentry kind="lib" path="C:/POI/poi-bin-3.10-FINAL-20140208/poi-3.10-FINAL/lib/log4j-1.2.13.jar"/>
 =======
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_22"/>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_22"/>
+>>>>>>> 25c203bbddeea157318189567382319ac6d76279
 	<classpathentry exported="true" kind="lib" path="C:/Users/fmoreiraf/Desktop/dctm_composer_r.6.6/Composer/plugins/com.emc.ide.external.dfc_1.0.0/lib/dfc.jar"/>
 	<classpathentry kind="lib" path="C:/Documentum/Config"/>
 	<classpathentry kind="lib" path="C:/Users/fmoreiraf/Desktop/poi-3.10-FINAL/poi-3.10-FINAL-20140208.jar"/>

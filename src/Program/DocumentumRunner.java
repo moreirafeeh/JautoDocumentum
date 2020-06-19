@@ -19,7 +19,8 @@ public class DocumentumRunner {
 	public static void main(String[] args) throws Exception {
 		
 
-		//UtilsDocumentum Utils = new UtilsDocumentum("ftwitch","@Twitch6","MapfreD03");
+		UtilsDocumentum Utils = new UtilsDocumentum("lvidotti","@Dctm03","MapfreD03");
+
 		//Utils.ImportarDocumentum();
 		//Utils.exportVirtualDocument("path", "/Felipe Twitch/testandoTwitch.txt");
 		//Utils.getAllDocbases();
@@ -42,6 +43,7 @@ public class DocumentumRunner {
 		//Utils.ConsultarQuery(Querys.ContarDatasArquivos("1/1/2018 23:59:59", "1/1/2020 23:59:59"));
 		//Utils.ConsultarQuery(Querys.ConsultarGabinets());
 		//Utils.ConsultarQuery(Querys.PastaParaArquivo("/Felipe Twitch/felipinho3"));
+
 		
 		
 		
@@ -53,6 +55,11 @@ public class DocumentumRunner {
 		//functionFile.lerExcel("C:\\Users\\lvidotti\\Desktop\\teste.xlsx");
 		//functionFile.colunaEspecificaExcel("C:\\Users\\lvidotti\\Desktop\\teste.xlsx");
 		//functionFile.celulaEspecificaExcel("C:\\Users\\lvidotti\\Desktop\\teste.xlsx");
+
+		
+		
+		//Utils.assignACL();
+
 		
 		
 	}
