@@ -1,4 +1,4 @@
-package com.documentum;
+package src.com.documentum;
 import com.documentum.fc.client.DfClient;
 import com.documentum.fc.client.IDfClient;
 import com.documentum.fc.client.IDfSession;
@@ -11,10 +11,15 @@ import com.documentum.com.DfClientX;
 import com.documentum.com.IDfClientX;
 import com.documentum.operations.IDfExportNode;
 import com.documentum.operations.IDfExportOperation;
-import com.documentum.ObjDctmDocOficina;
+import src.com.documentum.ObjDctmDocOficina;
 
 import com.documentum.fc.client.*;
 import com.documentum.fc.common.*;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.lang.*; 
+import java.util.Properties; 
 
 
 public abstract class conexao_documentum {
@@ -26,6 +31,36 @@ public abstract class conexao_documentum {
 	private String usuarioDctm;
 	private String senhaDctm;
 	private String erroDctm = null;
+	private static Properties props;
+	
+	public conexao_documentum() {
+		
+		getProp();
+		try {
+			clientDctm = DfClient.getLocalClient();
+			msessDctm = clientDctm.newSessionManager();
+			IDfLoginInfo li = new DfLoginInfo();
+			li.setUser(props.getProperty("usuario"));
+			li.setPassword(props.getProperty("senha"));
+			msessDctm.setIdentity(props.getProperty("banco"), li);
+			this.usuarioDctm = props.getProperty("usuario");
+			this.repositorioDctm = props.getProperty("banco");
+			this.senhaDctm = props.getProperty("senha");
+			this.ConectarDocumentum();
+
+		} catch (DfException dfe) {
+			if (dfe instanceof DfException) {
+				String MsgErro = ((DfException) dfe).getStackTraceAsString();
+				erroDctm = MsgErro;
+				
+			} else {
+				
+				dfe.printStackTrace();
+			}
+		}
+
+		
+	}
 	
 	public conexao_documentum(String Usuario_, String Senha_, String Repositorio_) {
 		
@@ -53,6 +88,19 @@ public abstract class conexao_documentum {
 		}
 	}
 	
+	private static Properties getProp() {
+		if (props == null) {
+			props = new Properties();
+			try {
+				props.load(new FileInputStream(".\\src\\com\\documentum\\DatasInfo.properties"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return props;
+	}
+	
+	
 	private IDfSession ConectarDocumentum() throws DfException {
 		try {
 
@@ -70,6 +118,21 @@ public abstract class conexao_documentum {
 		return sessDctm;
 	}
 	
+	public boolean DesconectarDocumentum() throws Exception {
+		boolean bolRet = false;
+		try {
+			msessDctm.release(sessDctm);
+			bolRet = true;
+		} catch (Exception ex) {
+			String MsgErro = ((Exception) ex).getMessage();
+			erroDctm = MsgErro;
+		
+		}
+	
+		return bolRet;
+}
+	
+
 	public IDfSession getSessDctm() {
 		return sessDctm;
 	}

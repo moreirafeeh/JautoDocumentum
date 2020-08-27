@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-lang-2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/configservice-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/configservice-impl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/castor-1.1-xml.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bpm_infra.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xercesImpl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlconfigeditor.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/Dart.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/DctmForm.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/DDS.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/dfc.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlschema.jar"/>
+	<classpathentry exported="true" kind="lib" path="dmbasic/"/>
+	<classpathentry exported="true" kind="lib" path="lib/wcm-utils.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/wcm-impl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/DctmAdaptor.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/IDctmAdaptor.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bpmutil.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/wcm-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/certjFIPS.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsafeFIPS.jar"/>
+	<classpathentry exported="true" kind="lib" path="documentum.config/"/>
+	<classpathentry exported="true" kind="lib" path="lib/subscription.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/aspectjrt.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" kind="lib" path="lib/jaxb-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jaxb-impl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
