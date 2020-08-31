@@ -8,6 +8,11 @@ import java.io.StringWriter;
 import javax.xml.transform.OutputKeys;
 import org.w3c.dom.Document;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.namespace.QName;
+
 //--------------
 
 
@@ -23,6 +28,8 @@ import src.com.documentum.UtilsDocumentum;
 import src.com.documentum.ObjectsParam.Querys;
 
 import src.dealt_apache.*;
+import src.org.tempuri.Calculator;
+import src.org.tempuri.CalculatorSoap;
 
 public class DocumentumRunner {
 
@@ -95,18 +102,45 @@ public class DocumentumRunner {
 		//Utils.ConsultarQuery(Querys.VerificaPasta("documentadm"));
 		////ArrayList<String> arquivosNaoIndexados = Utils.ConsultarQuery(Querys.PastaParaArquivo("/Sinistros Autos/Não Indexados"));
 		
-		/*
-		for(int i = 0; i <= arquivosNaoIndexados.size(); i++){
+		
+		//for(int i = 0; i <= arquivosNaoIndexados.size(); i++){
+		QName SERVICE_NAME = new QName("http://tempuri.org/", "Calculator");
 			try{
-				retornoReq = lib.requisicao(arquivosNaoIndexados.get(i)); //VIDOTTI FAZENDO
+				URL wsdlURL = Calculator.WSDL_LOCATION;
+		        if (args.length > 0 && args[0] != null && !"".equals(args[0])) { 
+		            File wsdlFile = new File(args[0]);
+		            try {
+		                if (wsdlFile.exists()) {
+		                    wsdlURL = wsdlFile.toURI().toURL();
+		                } else {
+		                    wsdlURL = new URL(args[0]);
+		                }
+		            } catch (MalformedURLException e) {
+		                e.printStackTrace();
+		            }
+		        }
+		      
+		        Calculator ss = new Calculator(wsdlURL, SERVICE_NAME);
+		        CalculatorSoap port = ss.getCalculatorSoap();  
+		        
+		        {
+		        System.out.println("Invoking divide...");
+		        int _divide_intA = 2;
+		        int _divide_intB = 2;
+		        int _divide__return = port.divide(_divide_intA, _divide_intB);
+		        System.out.println("divide.result=" + _divide__return);
+		
+		
+		        }
+				//retornoReq = lib.requisicao(arquivosNaoIndexados.get(i)); //VIDOTTI FAZENDO
 			}
 			catch (Exception e){
-				Utils.createFolder("Felipe Twitch", "parametros incorretos");
+				//Utils.createFolder("Felipe Twitch", "parametros incorretos");
 				//Utils.ConsultarQueryUPDATE(Querys.UPDATE_UNLINK("/Felipe Twitch/Felipe Teste", "0900069f800b99ba"));
 				//Utils.ConsultarQueryUPDATE(Querys.UPDATE_LINK("/Felipe Twitch/parametros incorretos", "0900069f800b99ba"));
-				break;
+				//break;
 			}
-			
+			/*
 			try{
 				validarParametrosDaReq(retornoReq);
 			}

@@ -60,8 +60,8 @@ public final class CalculatorSoap_CalculatorSoap_Client {
         }
         {
         System.out.println("Invoking add...");
-        int _add_intA = 0;
-        int _add_intB = 0;
+        int _add_intA = 5;
+        int _add_intB = 5;
         int _add__return = port.add(_add_intA, _add_intB);
         System.out.println("add.result=" + _add__return);
 
