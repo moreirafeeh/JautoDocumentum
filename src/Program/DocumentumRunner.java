@@ -1,5 +1,6 @@
 package src.Program;
 
+import src.org.tempuri.CalculatorSoap_CalculatorSoap12_Client;
 
 //------SOAP-----
 import java.io.ByteArrayInputStream;
@@ -106,32 +107,7 @@ public class DocumentumRunner {
 		//for(int i = 0; i <= arquivosNaoIndexados.size(); i++){
 		QName SERVICE_NAME = new QName("http://tempuri.org/", "Calculator");
 			try{
-				URL wsdlURL = Calculator.WSDL_LOCATION;
-		        if (args.length > 0 && args[0] != null && !"".equals(args[0])) { 
-		            File wsdlFile = new File(args[0]);
-		            try {
-		                if (wsdlFile.exists()) {
-		                    wsdlURL = wsdlFile.toURI().toURL();
-		                } else {
-		                    wsdlURL = new URL(args[0]);
-		                }
-		            } catch (MalformedURLException e) {
-		                e.printStackTrace();
-		            }
-		        }
-		      
-		        Calculator ss = new Calculator(wsdlURL, SERVICE_NAME);
-		        CalculatorSoap port = ss.getCalculatorSoap();  
-		        
-		        {
-		        System.out.println("Invoking divide...");
-		        int _divide_intA = 2;
-		        int _divide_intB = 2;
-		        int _divide__return = port.divide(_divide_intA, _divide_intB);
-		        System.out.println("divide.result=" + _divide__return);
-		
-		
-		        }
+				CalculatorSoap_CalculatorSoap12_Client.SOAP_TESTE(args);
 				//retornoReq = lib.requisicao(arquivosNaoIndexados.get(i)); //VIDOTTI FAZENDO
 			}
 			catch (Exception e){
