@@ -105,7 +105,7 @@ public class DocumentumRunner {
 		
 		
 		//for(int i = 0; i <= arquivosNaoIndexados.size(); i++){
-		QName SERVICE_NAME = new QName("http://tempuri.org/", "Calculator");
+		//QName SERVICE_NAME = new QName("http://tempuri.org/", "Calculator");
 			try{
 				CalculatorSoap_CalculatorSoap12_Client.SOAP_TESTE(args);
 				//retornoReq = lib.requisicao(arquivosNaoIndexados.get(i)); //VIDOTTI FAZENDO
