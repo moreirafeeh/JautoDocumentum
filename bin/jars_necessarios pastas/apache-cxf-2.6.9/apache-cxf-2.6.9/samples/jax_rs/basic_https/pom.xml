@@ -33,7 +33,7 @@
 
     <properties>
         <cxf.version>${project.version}</cxf.version>
-        <httpclient.version>4.2.1</httpclient.version>
+        <httpclient.version>4.3.6</httpclient.version>
     </properties>
 
     <build>
