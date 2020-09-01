@@ -123,9 +123,9 @@ public class DocumentumRunner {
 			String param4 =  params.substring(46,60);
 			
 			
-			/// chamada do web service == 
-			QName SERVICE_NAME = new QName("http://tempuri.org/", "Calculator");
-			CalculatorSoap_CalculatorSoap12_Client.SOAP_TESTE(args);// params
+//			/// chamada do web service == 
+//			QName SERVICE_NAME = new QName("http://tempuri.org/", "Calculator");
+//			CalculatorSoap_CalculatorSoap12_Client.SOAP_TESTE(args);// params
 			
 			
 			
