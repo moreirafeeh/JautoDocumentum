@@ -1,5 +1,5 @@
 
-package src.org.tempuri;
+package org.tempuri;
 
 /**
  * Please modify this class to meet your needs

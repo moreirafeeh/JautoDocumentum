@@ -1,4 +1,4 @@
-package src.org.tempuri;
+package org.tempuri;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

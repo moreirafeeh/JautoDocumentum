@@ -1,4 +1,4 @@
-package src.org.tempuri;
+package org.tempuri;
 
 import java.net.MalformedURLException;
 import java.net.URL;

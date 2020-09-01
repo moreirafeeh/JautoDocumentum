@@ -1,4 +1,4 @@
-package src.com.documentum;
+package com.documentum;
 import com.documentum.fc.client.DfClient;
 import com.documentum.fc.client.IDfClient;
 import com.documentum.fc.client.IDfSession;
@@ -11,7 +11,7 @@ import com.documentum.com.DfClientX;
 import com.documentum.com.IDfClientX;
 import com.documentum.operations.IDfExportNode;
 import com.documentum.operations.IDfExportOperation;
-import src.com.documentum.ObjDctmDocOficina;
+import com.documentum.ObjDctmDocOficina;
 
 import com.documentum.fc.client.*;
 import com.documentum.fc.common.*;

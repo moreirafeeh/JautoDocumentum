@@ -1,5 +1,5 @@
 
-package src.org.tempuri;
+package org.tempuri;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

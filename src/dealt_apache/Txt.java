@@ -1,4 +1,4 @@
-package src.dealt_apache;
+package dealt_apache;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

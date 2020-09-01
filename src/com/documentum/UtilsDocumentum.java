@@ -1,10 +1,10 @@
-package src.com.documentum;
+package com.documentum;
 import java.io.IOException;
 import java.util.ArrayList;
-import src.com.documentum.ObjectsParam.Querys;
+import com.documentum.ObjectsParam.Querys;
 
-import src.com.documentum.conexao_documentum;
-import src.com.documentum.ObjectsParam.Querys;
+import com.documentum.conexao_documentum;
+import com.documentum.ObjectsParam.Querys;
 import com.documentum.com.DfClientX;
 import com.documentum.com.IDfClientX;
 import com.documentum.fc.client.DfQuery;

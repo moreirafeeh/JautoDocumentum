@@ -1,6 +1,6 @@
-package src.Program;
+package Program;
 
-import src.org.tempuri.CalculatorSoap_CalculatorSoap12_Client;
+import org.tempuri.CalculatorSoap_CalculatorSoap12_Client;
 
 //------SOAP-----
 import java.io.ByteArrayInputStream;
@@ -25,12 +25,12 @@ import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import src.com.documentum.UtilsDocumentum;
-import src.com.documentum.ObjectsParam.Querys;
+import com.documentum.UtilsDocumentum;
+import com.documentum.ObjectsParam.Querys;
 
-import src.dealt_apache.*;
-import src.org.tempuri.Calculator;
-import src.org.tempuri.CalculatorSoap;
+import dealt_apache.*;
+import org.tempuri.Calculator;
+import org.tempuri.CalculatorSoap;
 
 public class DocumentumRunner {
 
@@ -104,7 +104,7 @@ public class DocumentumRunner {
 		
 		/// limpa os arquivos com parametros zerados ==
 		
-		String nameinvalid = "NFO_000000000000000_00000000000000000_0000000_00000000000000.PDF";
+		String nameinvalid = "000000000000000_00000000000000000_0000000_00000000000000";
 		Utils.ConsultarQueryUPDATE(Querys.UPDATE_LINK("/Lucas Vidotti/ParametrosIncorretos",nameinvalid));
 		Utils.ConsultarQueryUPDATE(Querys.UPDATE_UNLINK("/Sinistros Autos/Não Indexados",nameinvalid));
 		

@@ -1,4 +1,4 @@
-package src.com.documentum;
+package com.documentum;
 
 
 	/**
